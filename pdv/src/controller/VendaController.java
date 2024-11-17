@@ -10,9 +10,7 @@ import model.Compra;
 import model.Produto;
 import view.Menu;
 
-public class VendaController {
-	private static List<Compra> compras = new ArrayList<Compra>();
-	
+public class VendaController {	
 	public static void realizarVenda(Scanner scanner) {
 	    System.out.println("CPF do Cliente: ");
 	    String cpfCliente = scanner.nextLine();
@@ -57,7 +55,7 @@ public class VendaController {
 
 	        produto.retirarSaldo(quantidade);
 	        
-	        Compra compra = new Compra(compras.size() + 1, produto, cliente, quantidade);
+	        Compra compra = new Compra(DataStore.compras.size() + 1, produto, cliente, quantidade);
 	        
 	        comprasCliente.add(compra);
 	        

@@ -9,21 +9,29 @@ import view.Menu;
 
 public class ClienteController {
 	public static void cadastrarCliente(Scanner scanner) {
-		System.out.println("ID do Cliente: ");
-		int id = scanner.nextInt();
-		scanner.nextLine();
-		
-		System.out.println("Nome: ");
-		String nome = scanner.nextLine();
-		
-		System.out.println("CPF: ");
-		String cpf = scanner.nextLine();
-		
-		DataStore.clientes.add(new Cliente(id, nome, cpf));
-		
-		System.out.println("Cliente cadastrado com sucesso!");
-		
-		Menu.exibirMenu();	
+		try {
+			System.out.println("ID do Cliente: ");
+			int id = scanner.nextInt();
+			scanner.nextLine();
+			
+			System.out.println("Nome: ");
+			String nome = scanner.nextLine();
+			
+			System.out.println("CPF: ");
+			String cpf = scanner.nextLine();
+			
+			Cliente cliente = new Cliente(id, nome, cpf);
+			DataStore.clientes.add(cliente);
+			
+			System.out.println("Cliente cadastrado com sucesso!");
+		} catch (Exception e) {
+			System.out.println();
+			System.out.println("-".repeat(40));
+	        System.out.println("Erro: " + e.getMessage());
+	        System.out.println("-".repeat(40));
+		}
+				
+		Menu.exibirMenu();		
 	}
 	
 	public static void listarComprasRealizadas(Scanner scanner) {

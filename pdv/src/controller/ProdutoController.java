@@ -39,7 +39,7 @@ public class ProdutoController {
 	        System.out.println("-".repeat(40));
 	        return;
 	    }
-	    
+	    	    
 	    System.out.println("Relatório de Produtos");
 	    System.out.printf("%-10s %-50s %-10s %-10s%n", "ID", "Descrição", "Preço", "Saldo");
 	    System.out.println("=".repeat(80));
