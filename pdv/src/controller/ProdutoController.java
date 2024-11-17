@@ -8,10 +8,6 @@ import view.Menu;
 
 public class ProdutoController {
 	public static void cadastrarProduto(Scanner scanner) {
-		System.out.println("ID do Produto: ");
-		int id = scanner.nextInt();
-		scanner.nextLine();
-		
 		System.out.println("Descrição do Produto: ");
 		String descricao = scanner.nextLine();
 		
@@ -24,8 +20,12 @@ public class ProdutoController {
 		
 		System.out.println("Saldo: ");
 		int saldo = scanner.nextInt();
-
-		DataStore.produtos.add(new Produto(id, descricao, preco, categoria, saldo));
+		
+		int idNovoProduto = DataStore.produtos.size() + 1;
+		
+		Produto produto = new Produto(idNovoProduto, descricao, preco, categoria, saldo);
+		
+		DataStore.produtos.add(produto);
 		System.out.println("Produto cadastrado com sucesso!");
 
 		Menu.exibirMenu();
@@ -54,6 +54,4 @@ public class ProdutoController {
 	        		id, descricao, preco, saldo); 
 	    }
 	}
-
-
 }

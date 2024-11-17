@@ -10,17 +10,15 @@ import view.Menu;
 public class ClienteController {
 	public static void cadastrarCliente(Scanner scanner) {
 		try {
-			System.out.println("ID do Cliente: ");
-			int id = scanner.nextInt();
-			scanner.nextLine();
-			
 			System.out.println("Nome: ");
 			String nome = scanner.nextLine();
 			
 			System.out.println("CPF: ");
 			String cpf = scanner.nextLine();
 			
-			Cliente cliente = new Cliente(id, nome, cpf);
+			int idNovoCliente = DataStore.clientes.size() + 1;
+			
+			Cliente cliente = new Cliente(idNovoCliente, nome, cpf);
 			DataStore.clientes.add(cliente);
 			
 			System.out.println("Cliente cadastrado com sucesso!");
@@ -85,6 +83,23 @@ public class ClienteController {
 	    
 		Menu.exibirMenu();	
 		return;
+	}
+	
+	
+	public static void listarClientesCadastrados() {
+		System.out.println("Relatório de Clientes");
+	    System.out.printf("%-10s %-30s %-15s%n", "ID", "Nome", "CPF");
+	    System.out.println("=".repeat(55));
+		    
+		for (Cliente cliente : DataStore.clientes) {
+			if(DataStore.clientes.size() > 0) {
+				int id = cliente.getId();
+				String nome = cliente.getNome();
+				String cpf = cliente.getCpf();
+				
+				System.out.printf("%-10s %-30s %-15s %n", id, nome, cpf);
+			}
+		}
 	}
 }
 

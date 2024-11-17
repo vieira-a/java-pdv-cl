@@ -25,6 +25,7 @@ public class Menu {
             System.out.println("3. Realizar Venda");
             System.out.println("4. Relatório de Compras por Cliente");
             System.out.println("5. Relatório de Produtos Cadastrados");
+            System.out.println("6. Relatório de Clientes Cadastrados");
             System.out.println("9. Sair");
             System.out.println();
 		    System.out.println("*".repeat(40));
@@ -43,6 +44,8 @@ public class Menu {
             	case 4: ClienteController.listarComprasRealizadas(scanner);
             	break;
             	case 5: ProdutoController.listarProdutosCadastrados();
+            	break;
+            	case 6: ClienteController.listarClientesCadastrados();
             	break;
             	case 9: System.out.println("Saindo...");
             	break;
